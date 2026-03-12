@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aseconvir Ltda | Expertos en Contabilidad Virtual para Pymes</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --citrus: #FFA62B;     
+            --sea-breeze: #86C5FF; 
+            --amalfi: #2E5AA7;     
+            --cream: #F8E6A0;      
+            --bg-light: #F9FAFB;
+            --text-main: #1A202C;
+            --radius-custom: 28px;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        /* Navbar Modernization */
+        .navbar {
+            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.8) !important;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Hero Styling */
+        .hero-minimal {
+            background: linear-gradient(135deg, #ffffff 0%, var(--cream) 100%);
+            padding: 160px 0 100px;
+            position: relative;
+        }
+
+        .hero-blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: var(--sea-breeze);
+            filter: blur(120px);
+            border-radius: 50%;
+            z-index: 0;
+            top: -100px;
+            right: -100px;
+            opacity: 0.3;
+        }
+
+        .card-subtitle {
+            background-color: #ffffff70;
+            border-radius: 30px;
+            padding: 20px 10px;
+        }
+
+        /* Section Headings */
+        .section-tag {
+            background: rgba(46, 90, 167, 0.1);
+            color: var(--amalfi);
+            font-weight: 700;
+            padding: 8px 20px;
+            border-radius: 999px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        h1, h2, h3 { font-weight: 800; letter-spacing: -1.5px; }
+        .text-gradient { background: linear-gradient(90deg, var(--amalfi), var(--citrus)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* Cards Style */
+        .glass-card {
+            background: white;
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: var(--radius-custom);
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            height: 100%;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(46, 90, 167, 0.08);
+        }
+
+        .icon-circle {
+            width: 55px;
+            height: 55px;
+            background: rgba(46, 90, 167, 0.08);
+            color: var(--amalfi);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 24px;
+        }
+
+        /* Pricing Specifics */
+        .pricing-card.featured {
+            background: var(--amalfi);
+            color: white;
+            border: none;
+        }
+        .pricing-card.featured .icon-circle { background: rgba(255,255,255,0.2); color: white; }
+        .pricing-card.featured .text-muted { color: rgba(255,255,255,0.7) !important; }
+        .price { font-size: 2.5rem; font-weight: 800; color: var(--amalfi); }
+        .featured .price { color: var(--cream); }
+
+        /* Buttons */
+        .btn-premium {
+            background: var(--amalfi);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 16px;
+            font-weight: 700;
+            border: none;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-premium:hover { background: var(--citrus); color: white; transform: scale(1.03); }
+        .btn-outline-custom {
+            border: 2px solid var(--amalfi);
+            color: var(--amalfi);
+            padding: 14px 32px;
+            border-radius: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        /* Accordion */
+        .accordion-item { border: none; background: transparent; margin-bottom: 15px; }
+        .accordion-button { 
+            border-radius: 20px !important; 
+            font-weight: 700; 
+            box-shadow: none !important;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .accordion-button:not(.collapsed) { background: var(--sea-breeze); color: var(--amalfi); }
+
+        footer { background: #fff; border-top: 1px solid rgba(0,0,0,0.05); }
+
+        @media (max-width: 991px) {
+            .hero-minimal { padding: 120px 0 60px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand fw-800 fs-3 d-flex align-items-center gap-2" href="#" style="color: var(--amalfi);">
+                <span style="background: var(--citrus); color: white; padding: 0 10px; border-radius: 10px;">A</span>
+                ASECONVIR<span style="color: var(--citrus);">.</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-3 align-items-center">
+                    <li class="nav-item"><a class="nav-link fw-600" href="#beneficios">Beneficios</a></li>
+                    <li class="nav-item"><a class="nav-link fw-600" href="#servicios">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link fw-600" href="#metodo">Método</a></li>
+                    <li class="nav-item"><a class="nav-link fw-600" href="#FAQ">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link fw-600" href="#planes">Planes</a></li>
+                    <li><a href="#contacto" class="btn btn-premium px-4 py-2">Solicitar Asesoría</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-minimal overflow-hidden" id="inicio">
+        <div class="hero-blob"></div>
+        <div class="container position-relative z-1">
+            <div class="row align-items-center g-6">
+                <div class="col-lg-7" data-aos="fade-right">
+                    <span class="section-tag">
+                        <i class="bi bi-shield-check me-2"></i> CONTABILIDAD 100% VIRTUAL
+                    </span>
+                    <h1 class="display-3 mb-4">Tome el control <span class="text-gradient">financiero</span> de su empresa hoy.</h1>
+                    <p class="lead text-muted mb-5 fs-4">Ayudamos a las pymes de Santa Marta a formalizarse, evitar sanciones y crecer con una contabilidad organizada y accesible sin oficinas físicas.</p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="#contacto" class="btn btn-premium shadow-lg">Agendar cita gratuita</a>
+                        <a href="#servicios" class="btn btn-outline-custom">Ver portafolio</a>
+                    </div>
+                    <div class="mt-5 d-flex gap-4 flex-wrap opacity-75">
+                        <small class="fw-bold"><i class="bi bi-check2-circle text-success me-1"></i> Evite multas DIAN</small>
+                        <small class="fw-bold"><i class="bi bi-check2-circle text-success me-1"></i> Ahorre tiempo</small>
+                        <small class="fw-bold"><i class="bi bi-check2-circle text-success me-1"></i> Datos en tiempo real</small>
+                    </div>
+                </div>
+                <div class="col-lg-5" data-aos="zoom-in">
+                    <div class="text-center px-5 mt-4 mt-lg-0">
+                        <img src="img2.png" alt="Dashboard" class="img-fluid w-70">
+                        <!-- <div class="card-subtitle">
+                            <h4 class="fw-800">Cero Desorden</h4>
+                            <p class="text-muted small">Transformamos sus facturas en herramientas estratégicas para su crecimiento.</p>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="beneficios" class="py-5">
+        <div class="container">
+            <div class="row mb-5 align-items-end">
+                <div class="col-lg-6" data-aos="fade-up">
+                    <span class="section-tag">¿Por qué elegirnos?</span>
+                    <h2 class="display-5">Soluciones reales para los desafíos de su pyme</h2>
+                </div>
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <p class="lead text-muted">Nuestro servicio no solo llena formularios; le brindamos la estructura que necesita para competir en el mercado actual de Santa Marta.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-3" data-aos="fade-up">
+                    <div class="glass-card">
+                        <div class="icon-circle"><i class="bi bi-shield-lock"></i></div>
+                        <h5 class="fw-bold">Cero Riesgos</h5>
+                        <p class="text-muted small mb-0">Protegemos su patrimonio cumpliendo cada normativa legal vigente.</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-card">
+                        <div class="icon-circle"><i class="bi bi-cloud-check"></i></div>
+                        <h5 class="fw-bold">100% Virtual</h5>
+                        <p class="text-muted small mb-0">Sin desplazamientos. Acceda a su información desde cualquier lugar.</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass-card">
+                        <div class="icon-circle"><i class="bi bi-currency-dollar"></i></div>
+                        <h5 class="fw-bold">Costos Claros</h5>
+                        <p class="text-muted small mb-0">Precios competitivos ajustados a la realidad de la micro y pequeña empresa.</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="glass-card">
+                        <div class="icon-circle"><i class="bi bi-lightning-charge"></i></div>
+                        <h5 class="fw-bold">Agilidad Total</h5>
+                        <p class="text-muted small mb-0">Respuestas rápidas para que su negocio no se detenga por trámites.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="bg-white py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="section-tag">Portafolio</span>
+                <h2 class="display-5">Todo lo que su empresa necesita</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="p-4 border-bottom">
+                        <i class="bi bi-headset fs-2 text-primary mb-3 d-block"></i>
+                        <h4 class="fw-700">Asesoría Permanente</h4>
+                        <p class="text-muted">Acompañamiento constante para resolver dudas contables y tributarias en tiempo real.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-4 border-bottom">
+                        <i class="bi bi-file-earmark-bar-graph fs-2 text-primary mb-3 d-block"></i>
+                        <h4 class="fw-700">Gestión Tributaria</h4>
+                        <p class="text-muted">Preparación de obligaciones fiscales para evitar sanciones y pagos innecesarios.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-4 border-bottom">
+                        <i class="bi bi-search fs-2 text-primary mb-3 d-block"></i>
+                        <h4 class="fw-700">Diagnóstico de Salud</h4>
+                        <p class="text-muted">Evaluamos el estado de su contabilidad y detectamos riesgos antes de que sean problemas.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="p-4">
+                        <i class="bi bi-bank fs-2 text-primary mb-3 d-block"></i>
+                        <h4 class="fw-700">Ruta de Formalización</h4>
+                        <p class="text-muted">Le ayudamos a pasar de la informalidad a ser una empresa sólida y atractiva para créditos.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-4">
+                        <i class="bi bi-archive fs-2 text-primary mb-3 d-block"></i>
+                        <h4 class="fw-700">Organización de Soportes</h4>
+                        <p class="text-muted">Estructuramos su archivo digital para que cada factura esté debidamente justificada.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-4">
+                        <i class="bi bi-trophy fs-2 text-primary mb-3 d-block"></i>
+                        <h4 class="fw-700">Soporte Gerencial</h4>
+                        <p class="text-muted">Le explicamos sus números para que tome decisiones que aumenten su rentabilidad.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="metodo" class="py-5 bg-dark text-white rounded-5 mx-2 mx-md-5">
+        <div class="container py-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="display-4 fw-800 mb-4">Un proceso sencillo pensado en su comodidad</h2>
+                    <div class="d-flex gap-4 mb-4">
+                        <div class="h1 fw-800 text-warning">01</div>
+                        <div>
+                            <h5 class="fw-bold">Entrevista y Diagnóstico</h5>
+                            <p class="opacity-75">Analizamos su situación actual sin costo inicial para entender sus necesidades.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-4 mb-4">
+                        <div class="h1 fw-800 text-warning">02</div>
+                        <div>
+                            <h5 class="fw-bold">Plan Personalizado</h5>
+                            <p class="opacity-75">Diseñamos una hoja de ruta con las prioridades legales y financieras de su negocio.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-4">
+                        <div class="h1 fw-800 text-warning">03</div>
+                        <div>
+                            <h5 class="fw-bold">Ejecución y Control</h5>
+                            <p class="opacity-75">Iniciamos el ordenamiento mensual y la supervisión de todas sus obligaciones.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="glass-card text-dark">
+                        <h4 class="fw-800 mb-4 text-center">Resultados Directos</h4>
+                        <div class="row text-center g-3">
+                            <div class="col-6">
+                                <div class="p-3 bg-light rounded-4">
+                                    <div class="display-6 fw-800 text-primary">0</div>
+                                    <small class="fw-bold">SANCIONES</small>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-3 bg-light rounded-4">
+                                    <div class="display-6 fw-800 text-primary">+30%</div>
+                                    <small class="fw-bold">TIEMPO LIBRE</small>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="mt-4 italic text-muted small text-center">"Desde que delegué mi contabilidad, tengo la tranquilidad de que mis impuestos están al día."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="FAQ" class="py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-5" data-aos="fade-up">
+                    <span class="section-tag">Preguntas Frecuentes</span>
+                    <h2 class="display-6">Claridad total para su tranquilidad</h2>
+                    <p class="text-muted">No dejamos nada al azar. Resolvemos las dudas más comunes de nuestros clientes en Santa Marta.</p>
+                </div>
+                <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
+                    <div class="accordion" id="accAseconvir">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#f1">
+                                    ¿Cómo funciona si mi negocio es físico?
+                                </button>
+                            </h2>
+                            <div id="f1" class="accordion-collapse collapse show" data-bs-parent="#accAseconvir">
+                                <div class="accordion-body text-muted">
+                                    Usted nos envía sus soportes de forma digital. Nosotros procesamos todo y le entregamos reportes mensuales. Es como tener un departamento contable al lado, pero más económico.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f2">
+                                    ¿Es seguro compartir mi información?
+                                </button>
+                            </h2>
+                            <div id="f2" class="accordion-collapse collapse" data-bs-parent="#accAseconvir">
+                                <div class="accordion-body text-muted">
+                                    Totalmente. Utilizamos protocolos de seguridad y confidencialidad estrictos. Sus datos solo son accesibles para usted y su equipo asignado.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f3">
+                                    ¿Qué pasa si recibo un requerimiento DIAN?
+                                </button>
+                            </h2>
+                            <div id="f3" class="accordion-collapse collapse" data-bs-parent="#accAseconvir">
+                                <div class="accordion-body text-muted">
+                                    Nosotros asumimos la representación y respuesta ante los entes de control. Usted nunca estará solo frente a la DIAN o Hacienda.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="planes" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag">Inversión</span>
+                <h2 class="display-5">Planes diseñados para crecer</h2>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4" data-aos="fade-up">
+                    <div class="glass-card pricing-card">
+                        <h4 class="fw-800">Plan Emprendedor</h4>
+                        <div class="price my-3">$149.000<small class="fs-6 text-muted">/mes</small></div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i> Diagnóstico contable</li>
+                            <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i> Asesoría virtual mensual</li>
+                            <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i> Guía de impuestos básicos</li>
+                        </ul>
+                        <a href="#contacto" class="btn btn-outline-custom w-100">Empezar ahora</a>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-card pricing-card featured shadow-lg">
+                        <h4 class="fw-800">Plan Crecimiento</h4>
+                        <div class="price my-3">$289.000<small class="fs-6">/mes</small></div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="bi bi-check-circle text-warning me-2"></i> 2 Sesiones de asesoría</li>
+                            <li class="mb-2"><i class="bi bi-check-circle text-warning me-2"></i> Revisión obligaciones DIAN</li>
+                            <li class="mb-2"><i class="bi bi-check-circle text-warning me-2"></i> Informe de salud financiera</li>
+                        </ul>
+                        <a href="#contacto" class="btn btn-premium w-100" style="background: var(--citrus);">Elegir este plan</a>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass-card pricing-card">
+                        <h4 class="fw-800">Plan Corporativo</h4>
+                        <div class="price my-3">A medida</div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i> Soporte gerencial ilimitado</li>
+                            <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i> Planificación tributaria anual</li>
+                            <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i> Auditoría de procesos</li>
+                        </ul>
+                        <a href="#contacto" class="btn btn-outline-custom w-100">Consultar experto</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto" class="py-5">
+        <div class="container py-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="display-4 fw-800 mb-4">¿Listo para el siguiente nivel?</h2>
+                    <p class="lead text-muted mb-5">No permita que el desorden financiero detenga su crecimiento. Agende una consulta hoy mismo.</p>
+                    <div class="d-flex gap-4">
+                        <div class="icon-circle"><i class="bi bi-whatsapp"></i></div>
+                        <div>
+                            <h5 class="fw-bold mb-0">WhatsApp</h5>
+                            <p class="text-muted">+57 311 5257056</p>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-4">
+                        <div class="icon-circle"><i class="bi bi-envelope"></i></div>
+                        <div>
+                            <h5 class="fw-bold mb-0">Email</h5>
+                            <p class="text-muted">contacto@aseconvir.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="glass-card shadow-lg p-5">
+                        <h4 class="fw-800 mb-4">Solicitar Diagnóstico Gratis</h4>
+                        <div class="d-grid gap-3">
+                            <a href="https://wa.me/573115257056" class="btn btn-premium btn-lg">Hablar con un experto</a>
+                            <a href="mailto:contacto@aseconvir.com" class="btn btn-outline-custom">Enviar Correo</a>
+                        </div>
+                        <p class="text-center mt-4 small text-muted">Santa Marta, Magdalena • Colombia</p>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-5 opacity-10">
+            <div class="text-center text-muted small">
+                <p>© 2026 Aseconvir Ltda. Todos los derechos reservados. Expertos en Pymes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+</body>
+</html>
